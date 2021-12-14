@@ -366,7 +366,7 @@ for repeat in range(10):
         results.inner_dist, results.cross_dist = compute_hidden_dist(model_untrain.to(device), feat_data_th, data_loader)
         results.inner_dist_after, results.cross_dist_after = compute_hidden_dist(results.best_model.to(device), feat_data_th, data_loader)
         results_list.append(results)
-    
+    os.makedirs('./exp_results/%s/'%args.dataset, exist_ok=True)
     save_path = os.path.join('./exp_results/%s/'%args.dataset, 
                              'results_%s_L%d_repteat%d.pkl'%(args.dataset, args.n_layers, repeat))
     
